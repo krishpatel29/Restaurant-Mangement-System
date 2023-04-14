@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f2f2f2;
+        }
+        
+        h1, h2, h3 {
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        button, .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover, .button:hover {
+            background-color: #3e8e41;
+        }
+        
+        /* Navigation styles */
+        nav {
+            background-color: #555;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        nav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        /* Hero section styles */
+        .hero-section {
+        background-image: url("https://source.unsplash.com/random/1600x900");
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        position: relative;
+        }
+        
+        .hero-section .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        }
+        
+        .hero-section h1 {
+        font-size: 48px;
+        margin-bottom: 16px;
+        }
+        
+        .hero-section p {
+        font-size: 24px;
+        margin-bottom: 24px;
+        }
+        
+        /* Login form styles */
+        .login-form {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        text-align: center;
+        }
+        
+        .login-form label {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        text-align: left;
+        }
+        
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        font-size: 16px;
+        }
+        
+        .login-form button[type="submit"] {
+        margin-top: 16px;
+        }
+        
+        .login-form .error-message {
+        color: #ff0000;
+        margin-bottom: 16px;
+        }
+        .hidden {
+            display: none;
+          }
+        /* Footer styles */
+        footer {
+        background-color: #333;
+        color: #fff;
+        padding: 16px;
+        text-align: center;
+        }
+        
+        footer p {
+        margin: 0;
+        }
+        
+        @media screen and (max-width: 768px) {
+        /* Small screen styles */
+        .hero-section h1 {
+        font-size: 36px;
+        }
+        
+        .hero-section p {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .login-form {
+            margin: 25px auto;
+        }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="staff.php" class="staff-link hidden">Staff</a>
+        <a href="menu.html" class="menu-link hidden">Menu</a>
+      </nav>
+	<section class="hero-section">
+		<div class="hero-content">
+			<h1>Welcome to our Restaurant</h1>
+			<p>Login to access your account</p>
+		</div>
+	</section>
+	<section class="login-form">
+		<h2>Login</h2>
+		<form>
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username" required>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required>
+			<button type="submit">Login</button>
+		</form>
+	</section>
+	<script>
+		// Function to check login credentials and redirect to authorized page
+		document.querySelector("form").addEventListener("submit", function(event) {
+			event.preventDefault();
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			if (username === "admin" && password === "password") {
+				window.location.href = "menu.html";
+			} else {
+				alert("Incorrect username or password.");
+			}
+		});
+	</script>
+</body>
+</html>
